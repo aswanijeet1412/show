@@ -8,34 +8,80 @@
   <meta name="CocoaVersion" content="1561.6">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 6.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
     span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
 <p class="p1"><span class="s1">{{ define "main" -}}</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Bio</b></span></h2>
-<p class="p1"><span class="s1">{{ with .GetPage "/sections/aboutme.md" }} {{ .Content }} {{ end }} {{ with .GetPage "/sections/contact.md" }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Contact</b></span></h2>
-<p class="p1"><span class="s1">{{ .Content }} {{ end }} {{ with .GetPage "/sections/office-hours.md" }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Office Hours</b></span></h2>
-<p class="p1"><span class="s1">{{ .Content }} {{ end }} {{ $scratch := newScratch }} {{ $scratch.Set "pubcnt" 0 }} {{ with .Site.Data.publications }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Publications</b></span></h2>
-<p class="p1"><span class="s1">{{ range . }} {{ range .works }} {{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }} {{ $scratch.Add "pubcnt" 1 }} {{ end }} {{ end }} {{ end }} {{ with .Site.Data.working_papers }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Working Papers</b></span></h2>
-<p class="p1"><span class="s1">{{ range . }} {{ range .works }} {{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }} {{ $scratch.Add "pubcnt" 1 }} {{ end }} {{ end }} {{ end }} {{ with .Site.Data.work_in_progress }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Work in Progress</b></span></h2>
-<p class="p1"><span class="s1">{{ range . }} {{ range .works }} {{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }} {{ $scratch.Add "pubcnt" 1 }} {{ end }} {{ end }} {{ end }} {{ with .GetPage "/sections/from-another-life.md" }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Other Publications</b></span></h2>
-<p class="p1"><span class="s1">{{ .Content }} {{ end }} {{ with .GetPage "/sections/op.md" }}</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; line-height: 22.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Personal</b></span></h2>
-<p class="p1"><span class="s1">{{ .Content }} {{ end }} {{ .Content }} {{- end }}<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1">&lt;h2 id="bio"&gt;Bio&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ with .GetPage "/sections/aboutme.md" }}</span></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .GetPage "/sections/contact.md" }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="contact"&gt;Contact&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .GetPage "/sections/office-hours.md" }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="officehours"&gt;Office Hours&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ $scratch := newScratch }}</span></p>
+<p class="p1"><span class="s1">{{ $scratch.Set "pubcnt" 0 }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .Site.Data.publications }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="publications"&gt;Publications&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ range . }}</span></p>
+<p class="p1"><span class="s1">{{ range .works }}</span></p>
+<p class="p1"><span class="s1">{{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}</span></p>
+<p class="p1"><span class="s1">{{ $scratch.Add "pubcnt" 1 }}<span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .Site.Data.working_papers }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="workingpapers"&gt;Working Papers&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ range . }}</span></p>
+<p class="p1"><span class="s1">{{ range .works }}</span></p>
+<p class="p1"><span class="s1">{{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}</span></p>
+<p class="p1"><span class="s1">{{ $scratch.Add "pubcnt" 1 }}<span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .Site.Data.work_in_progress }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="workinprogress"&gt;Work in Progress&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ range . }}</span></p>
+<p class="p1"><span class="s1">{{ range .works }}</span></p>
+<p class="p1"><span class="s1">{{ partial "publication.html" (dict "context" . "pid" ($scratch.Get "pubcnt")) }}</span></p>
+<p class="p1"><span class="s1">{{ $scratch.Add "pubcnt" 1 }}<span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .GetPage "/sections/from-another-life.md" }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="fromanotherlife"&gt;From Another Life&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ with .GetPage "/sections/personal.md" }}</span></p>
+<p class="p1"><span class="s1">&lt;hr&gt;</span></p>
+<p class="p1"><span class="s1">&lt;h2 id="personal"&gt;Personal&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{ end }}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">{{ .Content }}</span></p>
+<p class="p1"><span class="s1">{{- end }}</span></p>
 </body>
 </html>
